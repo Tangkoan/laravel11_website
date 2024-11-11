@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,6 +11,9 @@ Route::get('/', function () {
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin/logout', 'destroy')->name('admin.logout');
+});
 
 Route::get('/dashboard', function () {
     return view('admin.index');  // admin = floder , index name file index.blade.php

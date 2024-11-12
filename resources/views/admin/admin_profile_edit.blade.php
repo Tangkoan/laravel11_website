@@ -12,7 +12,9 @@
 
                 <h4 class="card-title">Edit Profile Page</h4>
 
-                <form action="">
+                <form method="post" action="{{ route('store.profile') }}" enctype="multipart/form-data">{{-- enctype="multipart/form-data" ប្រើដើម្បីអាចUpload Images បានច្រើន --}}
+                   @csrf {{-- ប្រើសម្រាប់ use grid--}}
+
                     {{-- Name --}}
                     <div class="row mb-3">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
@@ -25,7 +27,7 @@
                     <div class="row mb-3">
                         <label for="example-text-input" class="col-sm-2 col-form-label">User Name</label>
                         <div class="col-sm-10">
-                            <input id="userneame" name="userneame" class="form-control" type="text" placeholder="User Name" value="{{ $adminData->username}}">
+                            <input id="username" name="username" class="form-control" type="text" placeholder="User Name" value="{{ $adminData->username}}">
                         </div>
                     </div>
 
@@ -48,11 +50,17 @@
                     <div class="row mb-3">
                         <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <img id="showImage" class="rounded avatar-lg" src="{{asset('backend/assets/images/small/img-5.jpg')}}" alt="Card image cap">
+
+                            {{-- <img id="showImage" class="rounded avatar-lg" src="{{asset('backend/assets/images/small/img-5.jpg')}}" alt="Card image cap"> --}}
+                            <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($adminData->profile_image) ? url('upload/admin_images/'.$adminData->profile_image):url('upload/no_image.webp')) }}" alt="...">
+
                         </div>
                     </div>
+                    {{-- <a href="{{route('admin.profile')}}">
+                        <button type="none" class="btn btn-danger waves-effect waves-light">Cancel</button>
+                    </a> --}}
+                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Profile">
 
-                    <input type="sumbit" class="btn btn-info waves-effect waves-light" value="Update Profile" name="" id="">
             </div>
         </div>
     </div> <!-- end col -->

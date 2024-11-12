@@ -18,7 +18,7 @@
                             <hr>
                             <h4 class="card-title">User Nmae : {{$adminData->username}}</h4>
                             <hr>
-                            <a href="">
+                            <a href="{{ route('edit.profile') }}">
                                 <button  type="button" class="btn btn-info btn-rounded waves-effect waves-light">Edit Profile</button>
                             </a>
                         </div>

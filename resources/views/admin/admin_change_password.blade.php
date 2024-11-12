@@ -12,7 +12,13 @@
 
                 <h4 class="card-title">Chnage Password</h4><br>
 
-                <form method="post" action="{{ route('update.profile') }}">{{-- enctype="multipart/form-data" ប្រើដើម្បីអាចUpload Images បានច្រើន --}}
+                @if(count($errors))
+                    @foreach ($errors->all() as $error)
+                        <p class="alert alert-danger alert-dimissiable fade show">{{ $error}}</p>
+                    @endforeach
+                @endif
+
+                <form method="post" action="{{ route('update.password') }}">{{-- enctype="multipart/form-data" ប្រើដើម្បីអាចUpload Images បានច្រើន --}}
                    @csrf {{-- ប្រើសម្រាប់ use grid--}}
 
                     {{-- Old Password --}}

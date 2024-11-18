@@ -123,17 +123,4 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    // 'providers' => [
-    // // Other providers...
-    // Intervention\Image\ImageServiceProvider::class,
-    // ],
-
-    // 'aliases' => [
-    //     // Other aliases...
-    //     'Image' => Intervention\Image\Facades\Image::class,
-    // ],
-
-    /// បថ្ថែមក្រោយ install Intervention Larave
-
-
 ];

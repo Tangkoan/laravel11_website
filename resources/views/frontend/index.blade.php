@@ -12,6 +12,8 @@ Home | EasyLearning Website
     {{-- @include('frontend.home_all.home_about') --}}
     <!-- about-area-end -->
 
+
+
     <!-- services-area -->
     <section class="services">
     <div class="container">

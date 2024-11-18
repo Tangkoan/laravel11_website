@@ -2,7 +2,16 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+// use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\HomeSliderController;
+
+//Image Intervetion
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
+
+// Image Intervention
+Route::get('image-upload', [ImageController::class, 'index']);
+Route::post('image-upload', [ImageController::class, 'store'])->name('image.store');
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -22,6 +31,16 @@ Route::controller(AdminController::class)->group(function(){
         Route::post('/update/password', 'updatePassword')->name('update.password');
 
 });
+
+// HomeSlide
+Route::controller(HomeSliderController::class)->group(function(){
+    Route::get('/home/slide', 'HomeSlider')->name('home.slide');
+    Route::post('/update/slide', 'UpdateSlider')->name('update.slide');
+});
+
+Route::get('/test-image', [ImageController::class, 'testImage']);
+// Route::put('/update/slide', [HomeSliderController::class, 'UpdateSlider'])->name('update.slide');
+
 
 Route::get('/dashboard', function () {
     return view('admin.index');  // admin = floder , index name file index.blade.php

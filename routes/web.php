@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
-// use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\AboutController;
 
 //Image Intervetion
 use Illuminate\Support\Facades\Route;
@@ -50,6 +50,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+
+// About Page All Route
+Route::controller(AboutController::class)->group(function(){
+    Route::get('/about/page', 'AboutPage')->name('about.slide');
+    Route::post('/update/about', 'UpdateAbout')->name('update.about');
+
+    //frontend
+    Route::get('/about', 'HomeAbout')->name('home.about');
 });
 
 require __DIR__.'/auth.php';

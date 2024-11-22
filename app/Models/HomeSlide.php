@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeSlide extends Model
 {
+
+
     protected $guarded = [];
     // protected $fillable = [
     //     'title',

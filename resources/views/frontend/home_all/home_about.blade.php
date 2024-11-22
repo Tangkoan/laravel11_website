@@ -1,6 +1,8 @@
 @php
 $aboutpage = App\Models\About::find(1);
-
+// បន្ថែមកូដមកពី AboutController ដែលចេញពីFunction AllMultiImage ក្នុងការយកទិន្នន័យពីនោះមកបង្ហាញនៅក្នុងfrontendនេះ
+// $allMultiImage = MultiImage::all();
+$allMultiImage = App\Models\MultiImage::all();
 @endphp
 
 <section id="aboutSection" class="about">
@@ -8,11 +10,23 @@ $aboutpage = App\Models\About::find(1);
     <div class="row align-items-center">
     <div class="col-lg-6">
     <ul class="about__icons__wrap">
-    <li>
+
+    {{-- សរសេរកូដបន្ថែមក្នុងការភ្ជាប់Backend មកកាន់forntend --}}
+
+    {{-- <li>
     <img class="light" src="{{ asset('frontend/assets/img/icons/xd_light.png') }}" alt="XD">
     <img class="dark" src="{{ asset('frontend/assets/img/icons/xd.png') }}" alt="XD">
-    </li>
-    <li>
+    </li> --}}
+
+    @foreach ($allMultiImage as $item)
+
+        <li>
+            <img style="border-radius: 100%; width: 100px; height: 100px;" class="light" src="{{ asset($item->multi_image) }}" alt="XD">
+        </li>
+
+    @endforeach
+
+    {{-- <li>
     <img class="light" src="{{ asset('frontend/assets/img/icons/skeatch_light.png') }}" alt="Skeatch">
     <img class="dark" src="{{ asset('frontend/assets/img/icons/skeatch.png') }}" alt="Skeatch">
     </li>
@@ -35,7 +49,7 @@ $aboutpage = App\Models\About::find(1);
     <li>
     <img class="light" src="{{ asset('frontend/assets/img/icons/figma_light.png') }}" alt="Figma">
     <img class="dark" src="{{ asset('frontend/assets/img/icons/figma.png') }}" alt="Figma">
-    </li>
+    </li> --}}
     </ul>
     </div>
     <div class="col-lg-6">

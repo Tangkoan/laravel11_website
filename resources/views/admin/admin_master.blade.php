@@ -31,7 +31,11 @@
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
-    </head>
+
+        <!-- Code Link for Blogs -->
+         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" >
+        <!-- End Code Link for Blogs -->
+        </head>
 
     <body data-topbar="dark">
 
@@ -142,6 +146,10 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
+
+        <!-- Code Link for Blogs -->
+        <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script>
+        <!-- End Code Link for Blogs -->
 
     </body>
 

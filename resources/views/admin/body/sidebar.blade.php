@@ -26,13 +26,6 @@
                     </a>
                 </li>
 
-                {{-- <li>
-                    <a href="calendar.html" class=" waves-effect">
-                        <i class="ri-calendar-2-line"></i>
-                        <span>Calendar</span>
-                    </a>
-                </li> --}}
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fa fa-home"></i>
@@ -100,34 +93,32 @@
                 </li>
 
                 <li class="menu-title">Pages</li>
+                    <!-- Blog Category -->
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="fa fa-list-alt"></i>
+                            <span>Blog Category</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{ route('all.blog.category') }}">All Blog Category</a></li>
+                            <li><a href="{{ route('add.blog.category') }}">Add Blog Category</a></li>
+                        </ul>
+                    </li>
+                    <!-- Blogs -->
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="fas fa-blog"></i>
+                            <span>Blogs</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{ route('all.blog') }}">All Blogs</a></li>
+                            <li><a href="{{ route('add.blog') }}">Add Blogs</a></li>
+                        </ul>
+                    </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-account-circle-line"></i>
-                        <span>Blog Category</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('all.blog.category') }}">All Blog Category</a></li>
+
+
                     
-                        <li><a href="{{}}">Add Blog Category</a></li>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-profile-line"></i>
-                        <span>Utility</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html">Starter Page</a></li>
-                        <li><a href="pages-timeline.html">Timeline</a></li>
-                        <li><a href="pages-directory.html">Directory</a></li>
-                        <li><a href="pages-invoice.html">Invoice</a></li>
-                        <li><a href="pages-404.html">Error 404</a></li>
-                        <li><a href="pages-500.html">Error 500</a></li>
-                    </ul>
-                </li>
-
-
 
             </ul>
         </div>

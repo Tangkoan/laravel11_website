@@ -20,45 +20,45 @@ class HomeSliderController extends Controller
 
 
      public function UpdateSlider(Request $request)
-{
-    $slide_id = $request->id;
+    {
+        $slide_id = $request->id;
 
-    if ($request->file('home_slide')) {
-        $image = $request->file('home_slide');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
-        $save_url = 'upload/home_slide/' . $name_gen;
+        if ($request->file('home_slide')) {
+            $image = $request->file('home_slide');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = 'upload/home_slide/' . $name_gen;
 
-        // Move the uploaded image to the destination folder
-        $image->move(public_path('upload/home_slide'), $name_gen);
+            // Move the uploaded image to the destination folder
+            $image->move(public_path('upload/home_slide'), $name_gen);
 
-        HomeSlide::findOrFail($slide_id)->update([
-            'title' => $request->title,
-            'short_title' => $request->short_title,
-            'video_url' => $request->video_url,
-            'home_slide' => $save_url,
-        ]);
+            HomeSlide::findOrFail($slide_id)->update([
+                'title' => $request->title,
+                'short_title' => $request->short_title,
+                'video_url' => $request->video_url,
+                'home_slide' => $save_url,
+            ]);
 
-        $notification = array(
-            'message' => 'Home Slide Updated with Image Successfully',
-            'alert-type' => 'success',
-        );
+            $notification = array(
+                'message' => 'Home Slide Updated with Image Successfully',
+                'alert-type' => 'success',
+            );
 
-        return redirect()->back()->with($notification);
-    } else {
-        HomeSlide::findOrFail($slide_id)->update([
-            'title' => $request->title,
-            'short_title' => $request->short_title,
-            'video_url' => $request->video_url,
-        ]);
+            return redirect()->back()->with($notification);
+        } else {
+            HomeSlide::findOrFail($slide_id)->update([
+                'title' => $request->title,
+                'short_title' => $request->short_title,
+                'video_url' => $request->video_url,
+            ]);
 
-        $notification = array(
-            'message' => 'Home Slide Updated without Image Successfully',
-            'alert-type' => 'success',
-        );
+            $notification = array(
+                'message' => 'Home Slide Updated without Image Successfully',
+                'alert-type' => 'success',
+            );
 
-        return redirect()->back()->with($notification);
-    } // end Else
-} // End Method
+            return redirect()->back()->with($notification);
+        } // end Else
+    } // End Method
 
 
 

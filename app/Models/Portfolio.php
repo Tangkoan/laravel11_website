@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Portfolio extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    // protected $guarded = [];
+    protected $fillable = [
+        'portfolio_name',
+        'portfolio_title',
+        'portfolio_description',
+        'portfolio_image',
+    ];
     //
 }

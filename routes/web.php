@@ -6,6 +6,7 @@ use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\PortfolioController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Home\BlogCategoryController;
 
 //Image Intervetion
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,11 @@ Route::controller(HomeSliderController::class)->group(function(){
     Route::post('/update/slide', 'UpdateSlider')->name('update.slide');
 });
 
+// BlogCategory
+Route::controller(BlogCategoryController::class)->group(function(){
+    Route::get('/all/blog/category', 'AllCategory')->name('all.blog.category');
+});
+
 Route::get('/test-image', [ImageController::class, 'testImage']);
 // Route::put('/update/slide', [HomeSliderController::class, 'UpdateSlider'])->name('update.slide');
 
@@ -71,18 +77,23 @@ Route::controller(AboutController::class)->group(function(){
     Route::get('/about', 'HomeAbout')->name('home.about');
 });
 
-// Portfoio
+
+// Porfolio Controller
 Route::controller(PortfolioController::class)->group(function(){
-
     Route::get('/all/portfolio', 'AllPortfolio')->name('all.portfolio');
-
-    // ពីរនេះនៅជាមួយគ្នាក្នុងPage តែមួយ
     Route::get('/add/portfolio', 'AddPortfolio')->name('add.portfolio');
     Route::post('/store/portfolio', 'StorePortfolio')->name('store.portfolio');
-    // End
 
 
+    Route::get('/edit/portfolio/{id}', 'EditPortfolio')->name('edit.portfolio');
+    Route::post('/update/portfolio', 'UpdatePortfolio')->name('update.portfolio');
+
+    Route::get('/delete/portfolio/{id}', 'DeletePortfolio')->name('delete.portfolio');
+
+    // Route for Frontend
+    Route::get('/portfolio/details/{id}', 'PortfolioDetails')->name('portfolio.details');
 });
+
 
 
 require __DIR__.'/auth.php';

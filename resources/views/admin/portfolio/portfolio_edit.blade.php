@@ -8,16 +8,19 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Add Portfolio</h4>
+                        <h4 class="card-title">Edit Portfolio Page</h4>
 
-                        <form method="post" action="{{ route('store.portfolio') }}" enctype="multipart/form-data">
+                        {{-- Update create when we create route in web.php --}}
+                        <form method="post" action="{{ route('update.portfolio') }}" enctype="multipart/form-data">
                             @csrf
 
+                            {{-- ចាប់ID តាមកូដមួយបន្ទាត់ខាងក្រោម --}}
+                            <input type="hidden" name="id" value="{{ $portfolio->id }}">
                             {{-- Portfolio Name --}}
                             <div class="row mb-3">
                                 <label for="portfolio_name" class="col-sm-2 col-form-label">Portfolio Name</label>
                                 <div class="col-sm-10">
-                                    <input id="portfolio_name" name="portfolio_name" class="form-control" type="text" placeholder="Portfolio Name">
+                                    <input id="portfolio_name" name="portfolio_name" class="form-control" type="text" placeholder="Portfolio Name" value="{{ $portfolio->portfolio_name}}">
                                     @error('portfolio_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -28,7 +31,7 @@
                             <div class="row mb-3">
                                 <label for="portfolio_title" class="col-sm-2 col-form-label">Portfolio Title</label>
                                 <div class="col-sm-10">
-                                    <input id="portfolio_title" name="portfolio_title" class="form-control" type="text" placeholder="Portfolio Title">
+                                    <input id="portfolio_title" name="portfolio_title" class="form-control" type="text" placeholder="Portfolio Title" value="{{ $portfolio->portfolio_title}}">
                                     @error('portfolio_title')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -39,7 +42,7 @@
                             <div class="row mb-3">
                                 <label for="portfolio_description" class="col-sm-2 col-form-label">Portfolio Description</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" name="portfolio_description" id="elm1" rows="5" placeholder="Portfolio Description"></textarea>
+                                    <textarea class="form-control" name="portfolio_description" id="elm1" rows="5" placeholder="Portfolio Description">{{$portfolio->portfolio_description}}</textarea>
                                 </div>
                             </div>
 
@@ -55,11 +58,11 @@
                             <div class="row mb-3">
                                 <label for="" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img id="showImage" class="rounded avatar-lg" src="{{ url('upload/no_image.webp') }}" alt="Preview Image">
+                                    <img id="showImage" class="rounded avatar-lg" src="{{ asset($portfolio->portfolio_image)  }}" alt="Preview Image">
                                 </div>
                             </div>
 
-                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Portfolio Page">
+                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Portfolio Page">
                         </form>
 
                     </div>

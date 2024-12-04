@@ -11,11 +11,16 @@ use Illuminate\Support\Carbon;
 
 class BlogController extends Controller
 {
-    public function AllBlog() {
+    // public function AllBlog() {
     
-        $blogs = Blog::latest()->get();
+    //     $blogs = Blog::latest()->get();
+    //     return view('admin.blogs.blog_all', compact('blogs'));
+    // }
+    public function AllBlog() {
+        $blogs = Blog::latest()->paginate(10); // paginate data
         return view('admin.blogs.blog_all', compact('blogs'));
-   }
+    }
+
 
     public function AddBlog(){
         $categories = BlogCategory::orderBy('blog_category','ASC')->get();
@@ -154,9 +159,16 @@ class BlogController extends Controller
      } 
 
 
-     public function HomeBlog(){
+    //  public function HomeBlog(){
+    //     $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+    //     $allblogs = Blog::latest()->get();
+    //     return view('frontend.blog',compact('allblogs','categories'));
+    //  }  
+
+    public function HomeBlog(){
         $categories = BlogCategory::orderBy('blog_category','ASC')->get();
-        $allblogs = Blog::latest()->get();
+        $allblogs = Blog::latest()->paginate(5); // paginate blogs for the frontend
         return view('frontend.blog',compact('allblogs','categories'));
-     } // End Method 
+    }
+
 }

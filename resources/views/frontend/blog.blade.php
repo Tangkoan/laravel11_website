@@ -57,7 +57,7 @@ Blog | Tangkoan
             <span class="post__by">By : <a href="#">Halina Spond</a></span>
         </div>
         <h2 class="title"><a href="{{ route('blog.details',$item->id) }}">{{$item->blog_title}}</a></h2>
-        <p>{!! Str::limit($item->blog_description, 200) !!}  </p>
+        <p>{!! Str::limit($item->blog_description, 450) !!}  </p>
         <ul class="blog__post__meta">
             <li><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</li>
             
@@ -68,15 +68,11 @@ Blog | Tangkoan
                             @endforeach
 
 
-                            <!-- <div class="pagination-wrap">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#"><i class="far fa-long-arrow-left"></i></a></li>
-                                        
-                                        
-                                    </ul>
-                                </nav>
-                            </div> -->
+                            
+
+                            <div class="pagination-wrap">
+                                {{ $allblogs->links() }}
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <aside class="blog__sidebar">

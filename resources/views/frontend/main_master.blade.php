@@ -10,6 +10,11 @@
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/img/favicon.png') }}">
         <!-- Place favicon.ico in the root directory -->
 
+        <!-- សម្រាប់Contact -->
+         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+        <!-- End សម្រាប់Contact -->
+
+
 		<!-- CSS here -->
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">

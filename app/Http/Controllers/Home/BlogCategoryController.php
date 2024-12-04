@@ -51,11 +51,12 @@ class BlogCategoryController extends Controller
   {
       $blogcategory = $request->id;
           
-      $request->validate([
-         'blog_category' => 'required',
-     ], [
-         'blog_category.required' => 'Blog Category is Required',
-     ]);
+    //   $request->validate([
+    //      'blog_category' => 'required',
+    //  ], [
+    //      'blog_category.required' => 'Blog Category is Required',
+    //  ]);   
+    // យើងប្រើប្រាស់Validate ជាមួយJS
 
       try{
          BlogCategory::findOrFail($blogcategory)->update([

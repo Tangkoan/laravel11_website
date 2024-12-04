@@ -31,6 +31,8 @@
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
+        <!-- Icon fa -->
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- Code Link for Blogs -->
          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" >
@@ -102,6 +104,10 @@
 
         <script src="{{ asset('backend/assets/js/pages/dashboard.init.js') }}"></script>
 
+
+        <!-- public/public/backend/assets/js/validate.min.js -->
+            <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+        <!-- End public/backend/assets/js/validate.min.js -->
         <!-- App js -->
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
